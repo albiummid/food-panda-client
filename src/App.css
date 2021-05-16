@@ -1,5 +1,18 @@
 *{
   margin: 0;
-  /* padding: 0; */
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+h1{
+  font-size:larger;
+}
+h2{
+  font-size:medium;
+}
+p{
+  font-size:small;
+}
+li,small{
+  font-size:x-small;
 }

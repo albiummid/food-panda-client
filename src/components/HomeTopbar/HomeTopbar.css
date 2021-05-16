@@ -1,0 +1,25 @@
+.topbar-container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+.logo h1{
+    text-align: center;
+    color: #D70F64;
+}
+.home-topbar{
+    margin: 20px auto;
+    padding: 0 10px;
+}
+.logo{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 25px; 
+    margin-right: 5px;
+}

@@ -1,0 +1,42 @@
+.resturant-card{
+    position: relative;
+    box-shadow: 0px 10px 20px gray;
+    width: 90%;
+    border-radius: 10px;
+}
+.resturant-card img{
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.card-footer{
+    margin-top: 15px;
+    display: flex;
+   flex-wrap: nowrap;
+   justify-content: space-between;
+  
+}
+.card-details{
+    padding: 0 15px;
+    padding-bottom: 12px;
+
+}
+.discount{
+    position: absolute;
+    top:10px;
+    background-color:#00ff0086 ;
+    padding: 1px 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.facilities{
+    list-style: none;
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+.facilities > li{
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 1px 3px;
+}

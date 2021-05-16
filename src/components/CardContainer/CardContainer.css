@@ -1,0 +1,18 @@
+.card-section{
+    margin: 10px auto;
+    padding: 20px;
+}
+.title-bar{
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.card-container{
+    padding-bottom: 50px;
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   place-items: center;
+   grid-gap: 20px;
+
+}
