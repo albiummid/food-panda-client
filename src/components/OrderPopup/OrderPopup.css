@@ -15,3 +15,8 @@
 .d-none{
     display: none;
 }
+@media(max-width:480px){
+    .order-popup{
+        width: 100%;
+    }
+}

@@ -16,7 +16,6 @@ const Order = () => {
             .then(res => res.json())
             .then(data => setFoods(data));
     }, [updateData]);
-    console.log(foods);
     return (
         <div className="page-container ">
             <div className="order">
