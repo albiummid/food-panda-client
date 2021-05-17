@@ -5,6 +5,9 @@
     padding: 10px;
 
 }
+.topbar-container i{
+    font-size: larger;
+}
 .logo h1{
     text-align: center;
     color: #D70F64;

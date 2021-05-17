@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './OrderTopbar.css'
-const OrderTopbar = ({name}) => {
+const OrderTopbar = ({ name }) => {
+    const history = useHistory();
     return (
         <div className="topbar-container">
-            <Link to='/'>
+            <Link onClick={()=>history.goBack()} to='/'>
                 <i className="fas fa-chevron-left"></i>
             </Link>
             <h1>{name }</h1>

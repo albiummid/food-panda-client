@@ -2,4 +2,5 @@
     margin: 0 auto;
     max-width: 480px;
     border:2px dotted black;
+    min-height: 100vh;
 }

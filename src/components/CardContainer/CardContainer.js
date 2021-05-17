@@ -22,9 +22,9 @@ const CardContainer = ({ title, resturants, clickHandler }) => {
             <div className="card-container">
                 {
                     viewAll? 
-                        resturants.map(resturant => <ResturantCard resturent={resturant} clickHandler={clickHandler} key={resturant._id} />)
+                        resturants.map(resturant => <ResturantCard resturant={resturant} clickHandler={clickHandler} key={resturant._id} />)
                         :
-                        resturants.slice(0, 2).map((resturant) => <ResturantCard key={resturant._id} clickHandler={clickHandler} resturent={resturant} />)
+                        resturants.slice(0, 2).map((resturant) => <ResturantCard key={resturant._id} clickHandler={clickHandler} resturant={resturant} />)
 
                 }
             </div>

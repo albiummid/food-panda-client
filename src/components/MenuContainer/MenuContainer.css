@@ -1,0 +1,38 @@
+.menu-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-inline: auto;
+    margin-bottom: 80px;
+}
+
+.not-found{
+    margin: 0 auto;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.shortcut{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+   
+
+}
+.shortcut p{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: gainsboro;
+    border: 1px solid gainsboro;
+
+}
+.shortcut p:hover{
+  background-color: white;
+ color: black;
+ 
+
+}

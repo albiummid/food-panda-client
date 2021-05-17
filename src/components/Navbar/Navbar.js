@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Navbar.css';
-const Navbar = () => { 
+const Navbar = ({clickedSearch,setClickedSearch}) => { 
     return (
         <nav>
             <ul className="nav-items">
@@ -8,7 +8,7 @@ const Navbar = () => {
                 <i className="fas fa-qrcode"></i>
                 <p>Scan QR</p>
             </li>
-            <li className="nav-item">
+            <li onClick={()=> setClickedSearch(!clickedSearch)} className="nav-item">
             <i className="fas fa-search"></i>
                 <p>Search</p>
             </li>

@@ -3,28 +3,34 @@ import { useHistory } from 'react-router';
 import CardContainer from '../../components/CardContainer/CardContainer';
 import HomeTopbar from '../../components/HomeTopbar/HomeTopbar';
 import Navbar from '../../components/Navbar/Navbar';
+import ResturantCard from '../../components/ResturantCard/ResturantCard';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import Slider from '../../components/Slider/Slider';
 import './Home.css';
 
 const Home = () => {
+    const [searchKeywords, setSearchKeywords] = useState('');
+    const [updateData, setUpdateData] = useState(false);
+    const [resturants, setResturants] = useState([]);
     const [sliderFoods, setSliderFoods] = useState([]);
     const [nearbyResturants, setNearbyResturants] = useState([]);
     const [topRatedResturants, setTopRatedResturants] = useState([]);
+    const [clickedSearch, setClickedSearch] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://food-panda-albi.herokuapp.com/foods')
             .then(res => res.json())
             .then(data => {
                 setSliderFoods(data.slice(0, 5));
             });
-        fetch('http://localhost:5000/nearbyResturants')
+        fetch('https://food-panda-albi.herokuapp.com/nearbyResturants')
             .then(res => res.json())
-        .then(resturants => setNearbyResturants(resturants))
-        fetch('http://localhost:5000/topRatedResturants')
+            .then(resturants => setNearbyResturants(resturants));
+
+        fetch('https://food-panda-albi.herokuapp.com/topRatedResturants')
             .then(res => res.json())
-        .then(resturants => setTopRatedResturants(resturants))
+            .then(resturants => setTopRatedResturants(resturants));
 
-    }, []);
-
+    },[]);
 
 
     const history = useHistory();
@@ -34,12 +40,38 @@ const Home = () => {
     }
     return (
         <div className="page-container">
-                   <Navbar/>
             <HomeTopbar />
-            <Slider foods={sliderFoods} clickHandler={clickHandler} />
-            <CardContainer title={"Nearby Stores"} resturants={nearbyResturants} clickHandler={clickHandler} />
-            <CardContainer title={"Top Rated Foods"} resturants={topRatedResturants} clickHandler={clickHandler} />
-        
+            {
+                clickedSearch &&
+                <>
+                     <SearchBar type={"resturant"} searchKeywords={searchKeywords} setSearchKeywords={setSearchKeywords} setResturants={setResturants} />
+
+                    {resturants === null && searchKeywords.length > 0 &&
+                        <div className="not-found">
+                       <h1>Nothing found By keyword - ' <span> {searchKeywords}</span> '   </h1>
+                       <button onClick={()=>setClickedSearch(!clickedSearch)} > Go Back </button>
+                   </div>
+                }
+                </>
+               
+
+            }
+                <div className="card-container">
+                { 
+                    resturants?.map(resturant => <ResturantCard resturant={resturant} clickHandler={clickHandler}/>)
+                }
+                    </div>
+          
+            {
+                !clickedSearch &&
+                    <>
+                    <Slider foods={sliderFoods} clickHandler={clickHandler} />
+                    <CardContainer title={"Nearby Resturants"} resturants={nearbyResturants} clickHandler={clickHandler} />
+                    <CardContainer title={"Top Rated Raturants"} resturants={topRatedResturants} clickHandler={clickHandler} />
+                    </>
+            }
+
+            <Navbar clickedSearch={clickedSearch} setClickedSearch={setClickedSearch} />
         </div>
     );
 };
